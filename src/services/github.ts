@@ -46,6 +46,16 @@ export async function appendLog(
   entry: LogEntry,
 ): Promise<void> {
   const { logs, sha } = await getFile(config)
+
+  const isDuplicate = logs.some(
+    (log) =>
+      log.station === entry.station &&
+      log.direction === entry.direction &&
+      log.time === entry.time &&
+      log.date === entry.date,
+  )
+  if (isDuplicate) return
+
   logs.push(entry)
 
   const body: Record<string, unknown> = {
