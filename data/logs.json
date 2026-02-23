@@ -14,5 +14,13 @@
     "time": "18:16",
     "dayType": "workday",
     "date": "2026-02-23"
+  },
+  {
+    "station": "mrt_bang_pho",
+    "line": "mrt_blue",
+    "direction": "tha_phra",
+    "time": "18:18",
+    "dayType": "workday",
+    "date": "2026-02-23"
   }
 ]
