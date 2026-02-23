@@ -1,0 +1,10 @@
+[
+  {
+    "station": "mrt_bang_pho",
+    "line": "mrt_blue",
+    "direction": "lak_song",
+    "time": "19:47",
+    "dayType": "workday",
+    "date": "2026-02-23"
+  }
+]
