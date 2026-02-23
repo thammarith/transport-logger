@@ -248,7 +248,7 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
                 <h3>→ {dir.label}</h3>
                 <div className="predictions">
                   {visible.length > 0 ? (
-                    <p style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem' }}>
                       {visible.map((t, i) => {
                         const isNext = t.status === 'upcoming' && !visible.slice(0, i).some((v) => v.status === 'upcoming')
                         const cls = t.status === 'past' ? 'prediction-past' : isNext ? 'prediction-next' : 'prediction-later'
@@ -258,7 +258,7 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
                           </span>
                         )
                       })}
-                    </p>
+                    </div>
                   ) : (
                     <p className="no-data">{predictions.length > 0 ? 'No more trains this window' : 'No data yet'}</p>
                   )}
