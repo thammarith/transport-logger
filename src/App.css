@@ -214,11 +214,11 @@ details summary {
 
 .prediction-next {
   font-weight: 700;
-  color: #1a1a1a;
+  color: #2563eb;
 }
 
 .prediction-later {
-  color: #6b7280;
+  color: #1a1a1a;
 }
 
 .prediction-past {
