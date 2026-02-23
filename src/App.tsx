@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import type { GitHubConfig } from './types'
 import { SetupScreen } from './components/SetupScreen'
 import { MainScreen } from './components/MainScreen'
@@ -25,11 +25,7 @@ function clearConfig() {
 }
 
 export default function App() {
-  const [config, setConfig] = useState<GitHubConfig | null>(null)
-
-  useEffect(() => {
-    setConfig(loadConfig())
-  }, [])
+  const [config, setConfig] = useState<GitHubConfig | null>(loadConfig)
 
   const handleSave = (newConfig: GitHubConfig) => {
     saveConfig(newConfig)
