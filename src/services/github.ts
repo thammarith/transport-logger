@@ -1,9 +1,11 @@
 import type { GitHubConfig, LogEntry } from '../types'
 
+const OWNER = 'thammarith'
+const REPO = 'transport-logger'
 const FILE_PATH = 'data/logs.json'
 
-function apiUrl(config: GitHubConfig): string {
-  return `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${FILE_PATH}`
+function apiUrl(): string {
+  return `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE_PATH}`
 }
 
 function headers(config: GitHubConfig): Record<string, string> {
@@ -22,7 +24,7 @@ interface GitHubFileResponse {
 async function getFile(
   config: GitHubConfig,
 ): Promise<{ logs: LogEntry[]; sha: string | null }> {
-  const response = await fetch(apiUrl(config), { headers: headers(config) })
+  const response = await fetch(apiUrl(), { headers: headers(config) })
   if (response.status === 404) {
     return { logs: [], sha: null }
   }
@@ -54,7 +56,7 @@ export async function appendLog(
     body.sha = sha
   }
 
-  const response = await fetch(apiUrl(config), {
+  const response = await fetch(apiUrl(), {
     method: 'PUT',
     headers: headers(config),
     body: JSON.stringify(body),

@@ -32,6 +32,4 @@ export interface LogEntry {
 
 export interface GitHubConfig {
   token: string
-  owner: string
-  repo: string
 }
