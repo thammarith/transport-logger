@@ -217,14 +217,34 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
           {/* Predictions and logging for each direction */}
           {line?.directions.map((dir) => {
             const predictions = getPredictions(dir.id)
+            const currentMinutes = now.getHours() * 60 + now.getMinutes()
+            const visible = predictions
+              .map((time) => {
+                const [h, m] = time.split(':').map(Number)
+                const mins = h * 60 + m
+                const diff = mins - currentMinutes
+                let status: 'upcoming' | 'recent' | 'past'
+                if (diff >= 0) status = 'upcoming'
+                else if (diff >= -5) status = 'recent'
+                else status = 'past'
+                return { time, status }
+              })
+              .filter((t) => t.status !== 'past')
             return (
               <div key={dir.id} className="direction-section">
                 <h3>→ {dir.label}</h3>
                 <div className="predictions">
-                  {predictions.length > 0 ? (
-                    <p>{predictions.join(', ')}</p>
+                  {visible.length > 0 ? (
+                    <p>
+                      {visible.map((t, i) => (
+                        <span key={t.time}>
+                          {i > 0 && ', '}
+                          <span className={t.status === 'recent' ? 'prediction-past' : ''}>{t.time}</span>
+                        </span>
+                      ))}
+                    </p>
                   ) : (
-                    <p className="no-data">No data yet</p>
+                    <p className="no-data">{predictions.length > 0 ? 'No more trains this hour' : 'No data yet'}</p>
                   )}
                 </div>
                 <button

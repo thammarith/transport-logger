@@ -213,6 +213,11 @@ details summary {
   font-variant-numeric: tabular-nums;
 }
 
+.prediction-past {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
 .no-data {
   color: #9ca3af;
   font-size: 0.875rem !important;
