@@ -8,6 +8,14 @@
     "date": "2026-02-23"
   },
   {
+    "station": "mrt_bang_phlat",
+    "line": "mrt_blue",
+    "direction": "tha_phra",
+    "time": "19:53",
+    "dayType": "workday",
+    "date": "2026-02-23"
+  },
+  {
     "station": "mrt_bang_pho",
     "line": "mrt_blue",
     "direction": "lak_song",
