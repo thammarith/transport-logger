@@ -222,8 +222,7 @@ details summary {
 }
 
 .prediction-past {
-  color: #9ca3af;
-  text-decoration: line-through;
+  color: #d1d5db;
 }
 
 .no-data {
