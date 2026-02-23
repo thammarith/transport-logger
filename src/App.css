@@ -1,42 +1,218 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Setup Screen */
+.setup-screen {
+  padding: 24px 0;
+}
+
+.setup-screen h1 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.setup-screen p {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.setup-screen form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.setup-screen label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.setup-screen input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.setup-screen button[type='submit'] {
+  padding: 14px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Main Screen */
+.main-screen header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.main-screen h1 {
+  font-size: 1.25rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.holiday-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+}
+
+.day-type-badge {
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.settings-btn {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.error {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  margin-bottom: 12px;
+}
+
+/* Station Picker */
+.station-picker {
+  margin-bottom: 16px;
+}
+
+.station-picker h3,
+.station-picker h4 {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 12px 0 8px;
+}
+
+.station-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  font-size: 0.9375rem;
+}
+
+.station-option.selected {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.line-tag {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.line-group {
+  margin-bottom: 8px;
+}
+
+details summary {
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #2563eb;
+  margin: 12px 0;
+}
+
+/* Selected Station */
+.selected-station {
+  background: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.selected-station h2 {
+  font-size: 1.125rem;
+  flex: 1;
+}
+
+.change-link {
+  font-size: 0.875rem;
+  color: #2563eb;
+}
+
+/* Direction Sections */
+.direction-section {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.direction-section h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.predictions p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.no-data {
+  color: #9ca3af;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+}
+
+.log-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.log-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.last-logged {
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 12px;
 }
