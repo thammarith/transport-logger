@@ -84,7 +84,7 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
       try {
         await appendLog(config, entry)
         setAllLogs((prev) => [...prev, entry])
-        setLastLogged(`${time} -> ${direction}`)
+        setLastLogged(`${time} → ${direction}`)
       } catch (err) {
         setError(`Failed to save: ${(err as Error).message}`)
       } finally {
@@ -184,7 +184,7 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
             const predictions = getPredictions(dir.id)
             return (
               <div key={dir.id} className="direction-section">
-                <h3>-&gt; {dir.label}</h3>
+                <h3>→ {dir.label}</h3>
                 <div className="predictions">
                   {predictions.length > 0 ? (
                     <p>{predictions.join(', ')}</p>
@@ -197,7 +197,7 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
                   disabled={logging}
                   onClick={() => handleLog(dir.id)}
                 >
-                  {logging ? 'Saving...' : `Log -> ${dir.label}`}
+                  {logging ? 'Saving...' : `Log → ${dir.label}`}
                 </button>
               </div>
             )
