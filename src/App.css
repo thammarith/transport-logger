@@ -209,8 +209,16 @@ details summary {
 
 .predictions p {
   font-size: 1.25rem;
-  font-weight: 600;
   font-variant-numeric: tabular-nums;
+}
+
+.prediction-next {
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.prediction-later {
+  color: #6b7280;
 }
 
 .prediction-past {

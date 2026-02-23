@@ -235,12 +235,16 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
                 <div className="predictions">
                   {visible.length > 0 ? (
                     <p>
-                      {visible.map((t, i) => (
-                        <span key={t.time}>
-                          {i > 0 && ', '}
-                          <span className={t.status === 'past' ? 'prediction-past' : ''}>{t.time}</span>
-                        </span>
-                      ))}
+                      {visible.map((t, i) => {
+                        const isNext = t.status === 'upcoming' && !visible.slice(0, i).some((v) => v.status === 'upcoming')
+                        const cls = t.status === 'past' ? 'prediction-past' : isNext ? 'prediction-next' : 'prediction-later'
+                        return (
+                          <span key={t.time}>
+                            {i > 0 && ', '}
+                            <span className={cls}>{t.time}</span>
+                          </span>
+                        )
+                      })}
                     </p>
                   ) : (
                     <p className="no-data">{predictions.length > 0 ? 'No more trains this window' : 'No data yet'}</p>
