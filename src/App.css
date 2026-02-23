@@ -64,16 +64,10 @@
 
 .clock-time {
   display: block;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   line-height: 1;
-}
-
-.clock-seconds {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #6b7280;
 }
 
 .clock-date {
@@ -155,6 +149,12 @@
 .line-tag {
   font-size: 0.75rem;
   color: #6b7280;
+}
+
+.distance-tag {
+  font-size: 0.75rem;
+  color: #2563eb;
+  font-weight: 600;
 }
 
 .line-group {

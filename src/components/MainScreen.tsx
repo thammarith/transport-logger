@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import type { GitHubConfig, LogEntry, Station, DayType } from '../types'
 import { stations } from '../data/stations'
 import { lines, getLine } from '../data/lines'
-import { findNearbyStations } from '../utils/geo'
+import { findNearbyStations, type StationWithDistance } from '../utils/geo'
 import { getDayType } from '../utils/dayType'
 import { predictArrivals } from '../utils/prediction'
 import { fetchLogs, appendLog } from '../services/github'
@@ -12,10 +12,16 @@ interface MainScreenProps {
   onLogout: () => void
 }
 
+function formatDistance(metres: number): string {
+  if (metres < 1000) return `${Math.round(metres)} m`
+  return `${(metres / 1000).toFixed(1)} km`
+}
+
 export function MainScreen({ config, onLogout }: MainScreenProps) {
   const [allLogs, setAllLogs] = useState<LogEntry[]>([])
   const [selectedStation, setSelectedStation] = useState<Station | null>(null)
-  const [nearbyStations, setNearbyStations] = useState<Station[]>([])
+  const [nearbyStations, setNearbyStations] = useState<StationWithDistance[]>([])
+  const [selectedDistance, setSelectedDistance] = useState<number | null>(null)
   const [isHoliday, setIsHoliday] = useState(false)
   const [loading, setLoading] = useState(true)
   const [logging, setLogging] = useState(false)
@@ -60,9 +66,11 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
         )
         setNearbyStations(nearby)
         if (nearby.length === 1) {
-          setSelectedStation(nearby[0])
+          setSelectedStation(nearby[0].station)
+          setSelectedDistance(nearby[0].distance)
         } else if (nearby.length > 1) {
-          setSelectedStation(nearby[0])
+          setSelectedStation(nearby[0].station)
+          setSelectedDistance(nearby[0].distance)
           setShowPicker(true)
         } else {
           setShowPicker(true)
@@ -73,6 +81,12 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
       },
     )
   }, [])
+
+  const selectStation = (station: Station, distance: number | null) => {
+    setSelectedStation(station)
+    setSelectedDistance(distance)
+    setShowPicker(false)
+  }
 
   const handleLog = useCallback(
     async (direction: string) => {
@@ -144,7 +158,7 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
       </header>
 
       <div className="clock">
-        <span className="clock-time">{hh}:{mm}<span className="clock-seconds">:{ss}</span></span>
+        <span className="clock-time">{hh}:{mm}:{ss}</span>
         <span className="clock-date">{currentDate}</span>
       </div>
 
@@ -156,13 +170,15 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
           {nearbyStations.length > 0 && (
             <div className="nearby-stations">
               <h3>Nearby Stations</h3>
-              {nearbyStations.map((s) => (
+              {nearbyStations.map(({ station: s, distance }) => (
                 <button
                   key={s.id}
                   className={`station-option ${selectedStation?.id === s.id ? 'selected' : ''}`}
-                  onClick={() => { setSelectedStation(s); setShowPicker(false) }}
+                  onClick={() => selectStation(s, distance)}
                 >
-                  {s.name} <span className="line-tag">{getLine(s.line)?.name}</span>
+                  {s.name}
+                  <span className="line-tag">{getLine(s.line)?.name}</span>
+                  <span className="distance-tag">{formatDistance(distance)}</span>
                 </button>
               ))}
             </div>
@@ -176,7 +192,7 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
                   <button
                     key={s.id}
                     className={`station-option ${selectedStation?.id === s.id ? 'selected' : ''}`}
-                    onClick={() => { setSelectedStation(s); setShowPicker(false) }}
+                    onClick={() => selectStation(s, null)}
                   >
                     {s.name}
                   </button>
@@ -192,6 +208,9 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
           <div className="selected-station" onClick={() => setShowPicker(!showPicker)}>
             <h2>{selectedStation.name}</h2>
             <span className="line-tag">{line?.name}</span>
+            {selectedDistance != null && (
+              <span className="distance-tag">{formatDistance(selectedDistance)}</span>
+            )}
             <span className="change-link">Change</span>
           </div>
 

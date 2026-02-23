@@ -16,12 +16,17 @@ export function haversineDistance(
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 }
 
+export interface StationWithDistance {
+  station: Station
+  distance: number
+}
+
 export function findNearbyStations(
   lat: number,
   lng: number,
   allStations: Station[],
   maxDistanceMetres = 1500,
-): Station[] {
+): StationWithDistance[] {
   return allStations
     .map((station) => ({
       station,
@@ -29,5 +34,4 @@ export function findNearbyStations(
     }))
     .filter(({ distance }) => distance <= maxDistanceMetres)
     .sort((a, b) => a.distance - b.distance)
-    .map(({ station }) => station)
 }
