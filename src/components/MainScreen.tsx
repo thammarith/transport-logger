@@ -218,18 +218,17 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
           {line?.directions.map((dir) => {
             const predictions = getPredictions(dir.id)
             const currentMinutes = now.getHours() * 60 + now.getMinutes()
-            const visible = predictions
-              .map((time) => {
-                const [h, m] = time.split(':').map(Number)
-                const mins = h * 60 + m
-                const diff = mins - currentMinutes
-                let status: 'upcoming' | 'recent' | 'past'
-                if (diff >= 0) status = 'upcoming'
-                else if (diff >= -5) status = 'recent'
-                else status = 'past'
-                return { time, status }
-              })
-              .filter((t) => t.status !== 'past')
+            const tagged = predictions.map((time) => {
+              const [h, m] = time.split(':').map(Number)
+              const mins = h * 60 + m
+              return { time, past: mins < currentMinutes }
+            })
+            const lastPast = tagged.filter((t) => t.past).at(-1)
+            const upcoming = tagged.filter((t) => !t.past)
+            const visible = [
+              ...(lastPast ? [{ ...lastPast, status: 'past' as const }] : []),
+              ...upcoming.map((t) => ({ ...t, status: 'upcoming' as const })),
+            ]
             return (
               <div key={dir.id} className="direction-section">
                 <h3>→ {dir.label}</h3>
@@ -239,12 +238,12 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
                       {visible.map((t, i) => (
                         <span key={t.time}>
                           {i > 0 && ', '}
-                          <span className={t.status === 'recent' ? 'prediction-past' : ''}>{t.time}</span>
+                          <span className={t.status === 'past' ? 'prediction-past' : ''}>{t.time}</span>
                         </span>
                       ))}
                     </p>
                   ) : (
-                    <p className="no-data">{predictions.length > 0 ? 'No more trains this hour' : 'No data yet'}</p>
+                    <p className="no-data">{predictions.length > 0 ? 'No more trains this window' : 'No data yet'}</p>
                   )}
                 </div>
                 <button
