@@ -234,14 +234,13 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
                 <h3>→ {dir.label}</h3>
                 <div className="predictions">
                   {visible.length > 0 ? (
-                    <p>
+                    <p style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem' }}>
                       {visible.map((t, i) => {
                         const isNext = t.status === 'upcoming' && !visible.slice(0, i).some((v) => v.status === 'upcoming')
                         const cls = t.status === 'past' ? 'prediction-past' : isNext ? 'prediction-next' : 'prediction-later'
                         return (
                           <span key={t.time}>
-                            {i > 0 && ', '}
-                            <span className={cls}>{t.time}</span>
+                            <div className={cls}>{t.time}</div>
                           </span>
                         )
                       })}
