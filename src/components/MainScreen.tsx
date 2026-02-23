@@ -32,7 +32,9 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
 
   const dayType: DayType = getDayType(now, isHoliday)
   const currentHour = now.getHours()
-  const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
+  const hh = String(now.getHours()).padStart(2, '0')
+  const mm = String(now.getMinutes()).padStart(2, '0')
+  const ss = String(now.getSeconds()).padStart(2, '0')
   const currentDate = now.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' })
 
   // Load logs from GitHub
@@ -142,7 +144,7 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
       </header>
 
       <div className="clock">
-        <span className="clock-time">{currentTime}</span>
+        <span className="clock-time">{hh}:{mm}<span className="clock-seconds">:{ss}</span></span>
         <span className="clock-date">{currentDate}</span>
       </div>
 
