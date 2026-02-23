@@ -22,9 +22,18 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
   const [error, setError] = useState<string | null>(null)
   const [lastLogged, setLastLogged] = useState<string | null>(null)
   const [showPicker, setShowPicker] = useState(false)
+  const [now, setNow] = useState(() => new Date())
 
-  const dayType: DayType = getDayType(new Date(), isHoliday)
-  const currentHour = new Date().getHours()
+  // Update clock every second
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  const dayType: DayType = getDayType(now, isHoliday)
+  const currentHour = now.getHours()
+  const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
+  const currentDate = now.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' })
 
   // Load logs from GitHub
   useEffect(() => {
@@ -131,6 +140,11 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
           <button className="settings-btn" onClick={onLogout}>Settings</button>
         </div>
       </header>
+
+      <div className="clock">
+        <span className="clock-time">{currentTime}</span>
+        <span className="clock-date">{currentDate}</span>
+      </div>
 
       {error && <p className="error">{error}</p>}
 
