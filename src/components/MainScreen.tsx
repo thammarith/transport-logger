@@ -232,7 +232,7 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
                   disabled={logging}
                   onClick={() => handleLog(dir.id)}
                 >
-                  {logging ? 'Saving...' : `Log → ${dir.label}`}
+                  {logging ? 'Saving...' : `Log ${hh}:${mm} → ${dir.label}`}
                 </button>
               </div>
             )
