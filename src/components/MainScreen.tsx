@@ -51,13 +51,14 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
       .finally(() => setLoading(false))
   }, [config])
 
-  // Get GPS location
+  // Get GPS location — use watchPosition for continuous updates on iOS Safari
   useEffect(() => {
     if (!navigator.geolocation) {
       setShowPicker(true)
       return
     }
-    navigator.geolocation.getCurrentPosition(
+    let hasAutoSelected = false
+    const watchId = navigator.geolocation.watchPosition(
       (pos) => {
         const nearby = findNearbyStations(
           pos.coords.latitude,
@@ -65,21 +66,34 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
           stations,
         )
         setNearbyStations(nearby)
-        if (nearby.length === 1) {
-          setSelectedStation(nearby[0].station)
-          setSelectedDistance(nearby[0].distance)
-        } else if (nearby.length > 1) {
-          setSelectedStation(nearby[0].station)
-          setSelectedDistance(nearby[0].distance)
-          setShowPicker(true)
-        } else {
-          setShowPicker(true)
+        if (!hasAutoSelected) {
+          hasAutoSelected = true
+          if (nearby.length === 1) {
+            setSelectedStation(nearby[0].station)
+            setSelectedDistance(nearby[0].distance)
+          } else if (nearby.length > 1) {
+            setSelectedStation(nearby[0].station)
+            setSelectedDistance(nearby[0].distance)
+            setShowPicker(true)
+          } else {
+            setShowPicker(true)
+          }
+        } else if (nearby.length > 0) {
+          // Update distance for currently selected station
+          setNearbyStations(nearby)
+          setSelectedDistance((prev) => {
+            const match = nearby.find((n) => n.station.id === selectedStation?.id)
+            return match ? match.distance : prev
+          })
         }
       },
       () => {
         setShowPicker(true)
       },
+      { enableHighAccuracy: true, maximumAge: 0, timeout: 10000 },
     )
+    return () => navigator.geolocation.clearWatch(watchId)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const selectStation = (station: Station, distance: number | null) => {
