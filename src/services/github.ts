@@ -47,20 +47,28 @@ export async function appendLog(
 ): Promise<void> {
   const { logs, sha } = await getFile(config)
 
-  const isDuplicate = logs.some(
-    (log) =>
-      log.station === entry.station &&
-      log.direction === entry.direction &&
-      log.time === entry.time &&
-      log.date === entry.date,
-  )
-  if (isDuplicate) return
-
   logs.push(entry)
+
+  // Deduplicate
+  const seen = new Set<string>()
+  const unique = logs.filter((log) => {
+    const key = `${log.date}|${log.time}|${log.station}|${log.direction}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+
+  // Sort by date, then time, then station, then direction
+  unique.sort((a, b) =>
+    a.date.localeCompare(b.date)
+    || a.time.localeCompare(b.time)
+    || a.station.localeCompare(b.station)
+    || a.direction.localeCompare(b.direction),
+  )
 
   const body: Record<string, unknown> = {
     message: `Add log entry: ${entry.station} ${entry.direction} ${entry.time}`,
-    content: btoa(JSON.stringify(logs, null, 2)),
+    content: btoa(JSON.stringify(unique, null, 2)),
   }
   if (sha) {
     body.sha = sha
