@@ -70,5 +70,13 @@
     "time": "19:55",
     "dayType": "workday",
     "date": "2026-02-23"
+  },
+  {
+    "station": "mrt_sirindhorn",
+    "line": "mrt_blue",
+    "direction": "tha_phra",
+    "time": "09:32",
+    "dayType": "workday",
+    "date": "2026-02-24"
   }
 ]
