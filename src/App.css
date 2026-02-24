@@ -257,7 +257,7 @@ details summary {
   margin-top: 12px;
 }
 
-/* Stop Detector PoC */
+/* Audio Detector PoC */
 .poc-detector {
   margin-top: 32px;
   padding-top: 24px;
@@ -266,8 +266,14 @@ details summary {
 
 .poc-detector h3 {
   font-size: 1rem;
-  margin-bottom: 16px;
+  margin-bottom: 4px;
   color: #6b7280;
+}
+
+.poc-subtitle {
+  font-size: 0.8125rem;
+  color: #9ca3af;
+  margin-bottom: 16px;
 }
 
 .poc-setup {
@@ -298,38 +304,35 @@ details summary {
   gap: 16px;
 }
 
-.poc-status {
+.poc-panel {
   background: #f9fafb;
   border-radius: 8px;
   padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
 }
 
-.poc-state-row {
-  font-size: 1rem;
+.poc-panel h4 {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 8px;
 }
 
-.poc-state {
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 4px;
+.poc-error {
+  color: #dc2626;
+  font-size: 0.8125rem;
+  margin-bottom: 8px;
 }
 
-.poc-state-idle {
-  background: #e5e7eb;
-  color: #374151;
-}
-
-.poc-state-moving {
-  background: #dcfce7;
-  color: #166534;
-}
-
-.poc-state-stopped {
-  background: #fef3c7;
-  color: #92400e;
+.poc-transcript {
+  font-size: 0.8125rem;
+  color: #1a1a1a;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 8px;
+  max-height: 80px;
+  overflow-y: auto;
+  margin-bottom: 8px;
+  word-break: break-word;
 }
 
 .poc-metric {
@@ -338,6 +341,54 @@ details summary {
   font-variant-numeric: tabular-nums;
 }
 
+/* Audio level meter */
+.poc-meter {
+  margin-bottom: 8px;
+}
+
+.poc-meter-label {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.poc-meter-bar-bg {
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.poc-meter-bar {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 6px;
+  transition: width 0.1s ease;
+}
+
+.poc-meter-bar.poc-meter-chime {
+  background: #f59e0b;
+}
+
+.poc-meter-value {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-variant-numeric: tabular-nums;
+}
+
+.poc-chime-flash {
+  color: #f59e0b;
+  font-weight: 700;
+  animation: pulse 0.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Route display */
 .poc-route {
   background: white;
   border-radius: 8px;
@@ -387,20 +438,6 @@ details summary {
   border-color: #22c55e;
 }
 
-.poc-next {
-  color: #1a1a1a;
-}
-
-.poc-next .poc-station-dot {
-  border-color: #2563eb;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-
 .poc-station-name {
   flex: 1;
 }
@@ -411,15 +448,66 @@ details summary {
   color: #2563eb;
 }
 
-.poc-tag-next {
-  animation: pulse 1.5s infinite;
+.poc-tag-speech {
+  color: #22c55e;
 }
 
-.poc-station-time {
+/* Event Log */
+.poc-log-section h4 {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.poc-log {
+  background: #111827;
+  border-radius: 8px;
+  padding: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: monospace;
   font-size: 0.75rem;
-  font-weight: 600;
-  color: #22c55e;
-  font-variant-numeric: tabular-nums;
+}
+
+.poc-log-empty {
+  color: #6b7280;
+  padding: 8px;
+}
+
+.poc-log-entry {
+  display: flex;
+  gap: 6px;
+  padding: 3px 4px;
+  align-items: baseline;
+}
+
+.poc-log-time {
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.poc-log-badge {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 1px 4px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.poc-badge-speech {
+  background: #166534;
+  color: #dcfce7;
+}
+
+.poc-badge-chime {
+  background: #92400e;
+  color: #fef3c7;
+}
+
+.poc-log-detail {
+  color: #d1d5db;
+  word-break: break-word;
 }
 
 .poc-stop-btn {
