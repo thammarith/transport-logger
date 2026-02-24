@@ -64,6 +64,14 @@
     "date": "2026-02-24"
   },
   {
+    "station": "mrt_hua_lamphong",
+    "line": "mrt_blue",
+    "direction": "tha_phra",
+    "time": "09:56",
+    "dayType": "workday",
+    "date": "2026-02-24"
+  },
+  {
     "station": "mrt_itsaraphap",
     "line": "mrt_blue",
     "direction": "tha_phra",
