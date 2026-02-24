@@ -80,6 +80,14 @@
     "date": "2026-02-24"
   },
   {
+    "station": "mrt_chatuchak_park",
+    "line": "mrt_blue",
+    "direction": "tha_phra",
+    "time": "18:39",
+    "dayType": "workday",
+    "date": "2026-02-24"
+  },
+  {
     "station": "mrt_fai_chai",
     "line": "mrt_blue",
     "direction": "tha_phra",
