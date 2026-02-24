@@ -2,6 +2,14 @@
   {
     "station": "bts_siam_silom",
     "line": "bts_silom",
+    "direction": "bang_wa",
+    "time": "18:19",
+    "dayType": "workday",
+    "date": "2026-02-24"
+  },
+  {
+    "station": "bts_siam_silom",
+    "line": "bts_silom",
     "direction": "national_stadium",
     "time": "18:18",
     "dayType": "workday",
