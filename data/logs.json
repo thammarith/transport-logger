@@ -80,6 +80,14 @@
     "date": "2026-02-24"
   },
   {
+    "station": "mrt_sam_yan",
+    "line": "mrt_blue",
+    "direction": "tha_phra",
+    "time": "09:58",
+    "dayType": "workday",
+    "date": "2026-02-24"
+  },
+  {
     "station": "mrt_sam_yot",
     "line": "mrt_blue",
     "direction": "tha_phra",
