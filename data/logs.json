@@ -110,5 +110,13 @@
     "time": "09:32",
     "dayType": "workday",
     "date": "2026-02-24"
+  },
+  {
+    "station": "mrt_tha_phra",
+    "line": "mrt_blue",
+    "direction": "tha_phra",
+    "time": "09:45",
+    "dayType": "workday",
+    "date": "2026-02-24"
   }
 ]
