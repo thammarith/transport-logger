@@ -58,6 +58,14 @@
   {
     "station": "mrt_sirindhorn",
     "line": "mrt_blue",
+    "direction": "lak_song",
+    "time": "09:28",
+    "dayType": "workday",
+    "date": "2026-02-24"
+  },
+  {
+    "station": "mrt_sirindhorn",
+    "line": "mrt_blue",
     "direction": "tha_phra",
     "time": "19:55",
     "dayType": "workday",
