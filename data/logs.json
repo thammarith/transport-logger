@@ -142,5 +142,13 @@
     "time": "09:45",
     "dayType": "workday",
     "date": "2026-02-24"
+  },
+  {
+    "station": "mrt_wat_mangkon",
+    "line": "mrt_blue",
+    "direction": "tha_phra",
+    "time": "09:54",
+    "dayType": "workday",
+    "date": "2026-02-24"
   }
 ]
