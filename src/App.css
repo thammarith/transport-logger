@@ -256,3 +256,181 @@ details summary {
   color: #6b7280;
   margin-top: 12px;
 }
+
+/* Stop Detector PoC */
+.poc-detector {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 2px dashed #d1d5db;
+}
+
+.poc-detector h3 {
+  font-size: 1rem;
+  margin-bottom: 16px;
+  color: #6b7280;
+}
+
+.poc-setup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.poc-setup label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.poc-setup select {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+}
+
+.poc-live {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.poc-status {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.poc-state-row {
+  font-size: 1rem;
+}
+
+.poc-state {
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.poc-state-idle {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.poc-state-moving {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.poc-state-stopped {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.poc-metric {
+  font-size: 0.875rem;
+  color: #4b5563;
+  font-variant-numeric: tabular-nums;
+}
+
+.poc-route {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.poc-route h4 {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.poc-station {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 0.9375rem;
+  color: #9ca3af;
+}
+
+.poc-station-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  flex-shrink: 0;
+}
+
+.poc-origin {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.poc-origin .poc-station-dot {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.poc-detected {
+  color: #166534;
+  font-weight: 600;
+}
+
+.poc-detected .poc-station-dot {
+  background: #22c55e;
+  border-color: #22c55e;
+}
+
+.poc-next {
+  color: #1a1a1a;
+}
+
+.poc-next .poc-station-dot {
+  border-color: #2563eb;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.poc-station-name {
+  flex: 1;
+}
+
+.poc-station-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.poc-tag-next {
+  animation: pulse 1.5s infinite;
+}
+
+.poc-station-time {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #22c55e;
+  font-variant-numeric: tabular-nums;
+}
+
+.poc-stop-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}

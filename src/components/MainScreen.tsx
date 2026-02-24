@@ -6,6 +6,7 @@ import { findNearbyStations, type StationWithDistance } from '../utils/geo'
 import { getDayType } from '../utils/dayType'
 import { predictArrivals } from '../utils/prediction'
 import { fetchLogs, appendLog } from '../services/github'
+import { StopDetectorPoC } from './StopDetectorPoC'
 
 interface MainScreenProps {
   config: GitHubConfig
@@ -277,6 +278,8 @@ export function MainScreen({ config, onLogout }: MainScreenProps) {
           {lastLogged && <p className="last-logged">Last logged: {lastLogged}</p>}
         </>
       )}
+
+      <StopDetectorPoC />
     </div>
   )
 }
