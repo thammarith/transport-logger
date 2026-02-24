@@ -1,5 +1,13 @@
 [
   {
+    "station": "bts_phaya_thai",
+    "line": "bts_sukhumvit",
+    "direction": "khu_khot",
+    "time": "18:23",
+    "dayType": "workday",
+    "date": "2026-02-24"
+  },
+  {
     "station": "bts_siam_silom",
     "line": "bts_silom",
     "direction": "bang_wa",
