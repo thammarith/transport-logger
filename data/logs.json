@@ -8,22 +8,6 @@
     "date": "2026-02-24"
   },
   {
-    "station": "bts_siam_silom",
-    "line": "bts_silom",
-    "direction": "bang_wa",
-    "time": "18:19",
-    "dayType": "workday",
-    "date": "2026-02-24"
-  },
-  {
-    "station": "bts_siam_silom",
-    "line": "bts_silom",
-    "direction": "national_stadium",
-    "time": "18:18",
-    "dayType": "workday",
-    "date": "2026-02-24"
-  },
-  {
     "station": "mrt_bang_khun_non",
     "line": "mrt_blue",
     "direction": "tha_phra",
@@ -212,14 +196,6 @@
     "line": "mrt_blue",
     "direction": "tha_phra",
     "time": "18:57",
-    "dayType": "workday",
-    "date": "2026-02-24"
-  },
-  {
-    "station": "mrt_sirindhorn",
-    "line": "mrt_blue",
-    "direction": "tha_phra",
-    "time": "18:59",
     "dayType": "workday",
     "date": "2026-02-24"
   },

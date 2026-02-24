@@ -58,11 +58,11 @@ export async function appendLog(
     return true
   })
 
-  // Sort by station, direction, date, time
+  // Sort by station, direction, dayType, time
   unique.sort((a, b) =>
     a.station.localeCompare(b.station)
     || a.direction.localeCompare(b.direction)
-    || a.date.localeCompare(b.date)
+    || a.dayType.localeCompare(b.dayType)
     || a.time.localeCompare(b.time),
   )
 
