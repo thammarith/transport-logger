@@ -1,5 +1,13 @@
 [
   {
+    "station": "mrt_bang_khun_non",
+    "line": "mrt_blue",
+    "direction": "tha_phra",
+    "time": "09:37",
+    "dayType": "workday",
+    "date": "2026-02-24"
+  },
+  {
     "station": "mrt_bang_o",
     "line": "mrt_blue",
     "direction": "tha_phra",
