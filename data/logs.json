@@ -96,6 +96,14 @@
     "date": "2026-02-24"
   },
   {
+    "station": "mrt_bang_yi_khan",
+    "line": "mrt_blue",
+    "direction": "tha_phra",
+    "time": "19:09",
+    "dayType": "workday",
+    "date": "2026-02-24"
+  },
+  {
     "station": "mrt_charan_13",
     "line": "mrt_blue",
     "direction": "tha_phra",
