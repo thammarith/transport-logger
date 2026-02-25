@@ -154,6 +154,14 @@
   {
     "station": "mrt_hua_lamphong",
     "line": "mrt_blue",
+    "direction": "lak_song",
+    "time": "21:04",
+    "dayType": "workday",
+    "date": "2026-02-25"
+  },
+  {
+    "station": "mrt_hua_lamphong",
+    "line": "mrt_blue",
     "direction": "tha_phra",
     "time": "09:56",
     "dayType": "workday",
