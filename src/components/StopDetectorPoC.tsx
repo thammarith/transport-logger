@@ -89,7 +89,8 @@ export function StopDetectorPoC() {
   const [eventLog, setEventLog] = useState<EventLogEntry[]>([])
 
   // Refs
-  const recognitionRef = useRef<SpeechRecognition | null>(null)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const recognitionRef = useRef<any>(null)
   const audioCtxRef = useRef<AudioContext | null>(null)
   const analyserRef = useRef<AnalyserNode | null>(null)
   const streamRef = useRef<MediaStream | null>(null)
@@ -116,12 +117,13 @@ export function StopDetectorPoC() {
       return
     }
 
-    const recognition: SpeechRecognition = new SpeechRecognition()
+    const recognition = new SpeechRecognition()
     recognition.continuous = true
     recognition.interimResults = true
     recognition.lang = 'en-US'  // English announcements more likely to be recognised
 
-    recognition.onresult = (event: SpeechRecognitionEvent) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    recognition.onresult = (event: any) => {
       let fullTranscript = ''
       for (let i = 0; i < event.results.length; i++) {
         fullTranscript += event.results[i][0].transcript
@@ -138,7 +140,8 @@ export function StopDetectorPoC() {
       }
     }
 
-    recognition.onerror = (event) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    recognition.onerror = (event: any) => {
       if (event.error === 'no-speech') return // normal, just restart
       setSpeechError(`Speech error: ${event.error}`)
       addEvent('speech', `Error: ${event.error}`)
