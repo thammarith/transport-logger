@@ -120,8 +120,7 @@ export function StopDetectorPoC() {
     recognition.interimResults = true
     recognition.lang = 'en-US'  // English announcements more likely to be recognised
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    recognition.onresult = (event: any) => {
+    recognition.onresult = (event: SpeechRecognitionEvent) => {
       let fullTranscript = ''
       for (let i = 0; i < event.results.length; i++) {
         fullTranscript += event.results[i][0].transcript
@@ -138,8 +137,7 @@ export function StopDetectorPoC() {
       }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    recognition.onerror = (event: any) => {
+    recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
       if (event.error === 'no-speech') return // normal, just restart
       setSpeechError(`Speech error: ${event.error}`)
       addEvent('speech', `Error: ${event.error}`)
