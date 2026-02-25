@@ -27,17 +27,17 @@
     "station": "mrt_bang_phlat",
     "line": "mrt_blue",
     "direction": "tha_phra",
-    "time": "19:53",
+    "time": "18:54",
     "dayType": "workday",
-    "date": "2026-02-23"
+    "date": "2026-02-24"
   },
   {
     "station": "mrt_bang_phlat",
     "line": "mrt_blue",
     "direction": "tha_phra",
-    "time": "18:54",
+    "time": "19:53",
     "dayType": "workday",
-    "date": "2026-02-24"
+    "date": "2026-02-23"
   },
   {
     "station": "mrt_bang_pho",
@@ -168,6 +168,14 @@
     "date": "2026-02-24"
   },
   {
+    "station": "mrt_lumphini",
+    "line": "mrt_blue",
+    "direction": "lak_song",
+    "time": "11:38",
+    "dayType": "workday",
+    "date": "2026-02-25"
+  },
+  {
     "station": "mrt_sam_yan",
     "line": "mrt_blue",
     "direction": "tha_phra",
@@ -188,6 +196,14 @@
     "line": "mrt_blue",
     "direction": "tha_phra",
     "time": "09:50",
+    "dayType": "workday",
+    "date": "2026-02-24"
+  },
+  {
+    "station": "mrt_sirindhorn",
+    "line": "mrt_blue",
+    "direction": "lak_song",
+    "time": "09:28",
     "dayType": "workday",
     "date": "2026-02-24"
   },
@@ -218,22 +234,6 @@
   {
     "station": "mrt_sirindhorn",
     "line": "mrt_blue",
-    "direction": "lak_song",
-    "time": "09:28",
-    "dayType": "workday",
-    "date": "2026-02-24"
-  },
-  {
-    "station": "mrt_sirindhorn",
-    "line": "mrt_blue",
-    "direction": "tha_phra",
-    "time": "19:55",
-    "dayType": "workday",
-    "date": "2026-02-23"
-  },
-  {
-    "station": "mrt_sirindhorn",
-    "line": "mrt_blue",
     "direction": "tha_phra",
     "time": "09:32",
     "dayType": "workday",
@@ -246,6 +246,14 @@
     "time": "18:57",
     "dayType": "workday",
     "date": "2026-02-24"
+  },
+  {
+    "station": "mrt_sirindhorn",
+    "line": "mrt_blue",
+    "direction": "tha_phra",
+    "time": "19:55",
+    "dayType": "workday",
+    "date": "2026-02-23"
   },
   {
     "station": "mrt_tha_phra",
