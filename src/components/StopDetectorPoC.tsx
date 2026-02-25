@@ -89,8 +89,7 @@ export function StopDetectorPoC() {
   const [eventLog, setEventLog] = useState<EventLogEntry[]>([])
 
   // Refs
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const recognitionRef = useRef<any>(null)
+  const recognitionRef = useRef<SpeechRecognition | null>(null)
   const audioCtxRef = useRef<AudioContext | null>(null)
   const analyserRef = useRef<AnalyserNode | null>(null)
   const streamRef = useRef<MediaStream | null>(null)
@@ -110,8 +109,7 @@ export function StopDetectorPoC() {
   // --- Speech Recognition ---
 
   const startSpeechRecognition = useCallback(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
     if (!SpeechRecognition) {
       setSpeechError('SpeechRecognition not supported in this browser')
       return
