@@ -314,6 +314,14 @@
   {
     "station": "mrt_tao_poon",
     "line": "mrt_blue",
+    "direction": "lak_song",
+    "time": "18:26",
+    "dayType": "workday",
+    "date": "2026-03-06"
+  },
+  {
+    "station": "mrt_tao_poon",
+    "line": "mrt_blue",
     "direction": "tha_phra",
     "time": "09:37",
     "dayType": "workday",
