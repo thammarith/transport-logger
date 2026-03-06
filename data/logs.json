@@ -43,6 +43,14 @@
     "station": "mrt_bang_pho",
     "line": "mrt_blue",
     "direction": "lak_song",
+    "time": "18:24",
+    "dayType": "workday",
+    "date": "2026-03-06"
+  },
+  {
+    "station": "mrt_bang_pho",
+    "line": "mrt_blue",
+    "direction": "lak_song",
     "time": "19:47",
     "dayType": "workday",
     "date": "2026-02-23"
