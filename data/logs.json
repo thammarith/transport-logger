@@ -51,6 +51,14 @@
     "station": "mrt_bang_pho",
     "line": "mrt_blue",
     "direction": "tha_phra",
+    "time": "18:22",
+    "dayType": "workday",
+    "date": "2026-03-06"
+  },
+  {
+    "station": "mrt_bang_pho",
+    "line": "mrt_blue",
+    "direction": "tha_phra",
     "time": "19:48",
     "dayType": "workday",
     "date": "2026-02-23"
