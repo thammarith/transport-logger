@@ -299,6 +299,14 @@
     "station": "mrt_sirindhorn",
     "line": "mrt_blue",
     "direction": "tha_phra",
+    "time": "18:34",
+    "dayType": "workday",
+    "date": "2026-03-09"
+  },
+  {
+    "station": "mrt_sirindhorn",
+    "line": "mrt_blue",
+    "direction": "tha_phra",
     "time": "18:57",
     "dayType": "workday",
     "date": "2026-02-24"
