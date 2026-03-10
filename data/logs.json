@@ -83,6 +83,14 @@
     "station": "mrt_bang_yi_khan",
     "line": "mrt_blue",
     "direction": "lak_song",
+    "time": "11:36",
+    "dayType": "workday",
+    "date": "2026-03-10"
+  },
+  {
+    "station": "mrt_bang_yi_khan",
+    "line": "mrt_blue",
+    "direction": "lak_song",
     "time": "19:00",
     "dayType": "workday",
     "date": "2026-02-24"
